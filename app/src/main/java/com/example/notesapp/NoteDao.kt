@@ -10,19 +10,19 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NoteDao {
 
-    // READ
+    // READ: mengambil seluruh catatan
     @Query("SELECT * FROM notes ORDER BY id DESC")
     fun getAll(): Flow<List<Note>>
 
-    // CREATE
+    // CREATE: menambahkan catatan
     @Insert
     suspend fun insert(note: Note)
 
-    // UPDATE
+    // UPDATE: mengubah catatan
     @Update
     suspend fun update(note: Note)
 
-    // DELETE
+    // DELETE: menghapus catatan
     @Delete
     suspend fun delete(note: Note)
 }
